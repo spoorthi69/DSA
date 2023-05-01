@@ -1,0 +1,25 @@
+//Create 1d array with 10 elements and find out prime numbers and print
+#include <stdio.h>
+int main()
+{
+    int a[10]={22,3,4,12,5,7,9,1,90,11};
+    int i,b;
+ 
+    while(i<10)
+    {
+    if(a[i]==1)
+    printf("%d\n",a[i]);
+    
+    else if(a[i]%2!=0)
+        {
+         for(int j=2;j<a[i];j++)
+           {
+               if(a[i]%j!=0)
+               b=a[i];
+           }
+           printf("%d\n",b);
+       }
+       i++;
+    }
+    
+}
