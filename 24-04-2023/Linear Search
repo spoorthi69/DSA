@@ -1,0 +1,44 @@
+/******************************************************************************
+
+Linear search for number of test cases
+
+*******************************************************************************/
+#include <stdio.h>
+int linearSearch(int key,int a[],int n)
+{
+    for(int i=0;i<n;i++)
+    {
+        if(a[i]==key)
+        {
+            return i+1;
+            break;
+        }
+    }
+        return -1;
+    
+}
+int main()
+{
+    int arr[20],i,key,tc,n,j,val[20];
+    printf("Enter the number of test cases\n");
+    scanf("%d",&tc);
+    for(i=1;i<=tc;i++)
+    {
+        printf("Enter the size of %d test case elements\n",i);
+        scanf("%d",&n);
+        printf("Enter the elements\n");
+        for(j=0;j<n;j++)
+        {
+        scanf("%d",&arr[j]);
+        }
+        printf("Enter the key element\n");
+        scanf("%d",&key);
+        val[i]=linearSearch(key,arr,n);
+    }
+    for(i=1;i<=tc;i++)
+    {
+        printf("%d \n",val[i]);
+    }
+    return 0;
+}
+
