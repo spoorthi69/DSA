@@ -1,0 +1,59 @@
+/******************************************************************************
+Moving all -ve nos to beginning of array 
+maintain 2 pointers-left(0) right(n-1)
+1.If both l & r are +ve decrement right pointers
+2.If both -ves increment pointers-left
+3.If left + and right -, swap and increment left and decrement right
+4. If left - and right +, no swap and increment left and decrement right
+5.continue till left and right are crossed
+
+*******************************************************************************/
+
+#include <stdio.h>
+int main()
+{
+    int n,i,left,right,temp;
+    printf("Enter n: ");
+    scanf("%d",&n);
+    int a[n];
+    printf("\nArray : ");
+    for(i=0;i<n;i++)
+    {
+        scanf("%d",&a[i]);
+    }
+    left=0;
+    right=n-1;
+    while(left<=right)
+    {
+            if(a[left]>0 && a[right]>0)
+            {
+                
+                    right-=1;
+            }
+            else if(a[left]>0 && a[right]<0)
+                {
+                    temp=a[right];
+                    a[right]=a[left];
+                    a[left]= temp;
+                    left++;
+                    right--;
+                }
+            
+            else if(a[left]<0 && a[right]<0)
+            {
+                left++;
+            }
+            else if(a[left]<0 && a[right]>0)
+                {
+                    left++;
+                    right--;
+                }
+
+    }
+    for(i=0;i<n;i++)
+    {
+        printf("%d ",a[i]);
+    }
+}
+
+
