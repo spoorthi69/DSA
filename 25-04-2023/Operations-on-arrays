@@ -1,0 +1,97 @@
+/******************************************************************************
+min and max elem in array, kth max and min elem, reversing of array,
+algorithm 2 separate sorted arrays, union of two and intersection
+
+*******************************************************************************/
+#include <stdio.h>
+void selection_sort(int a[],int n)
+{
+      int min,i,j,k;
+  //selection sort
+  for(i=0;i<n-1;i++)
+  {
+   min=i;
+        for(j=i+1;j<n;j++)
+        {
+            if(a[min]>a[j])
+            min=j;
+        }
+  if(min!=i)
+  {
+        int temp=a[i];
+        a[i]=a[min];
+        a[min]=temp;
+  }
+  }
+
+    for(i=0;i<n;i++)
+    printf("%d ",a[i]);
+    printf("\n");
+  scanf("%d",&k);
+  
+    
+      //    printf("%d \n%d\n",a[k-1],a[n-k]);
+         if(a[k-1]<a[n-k])
+         printf("largest :%d \n smallest %d\n", a[n-k],a[k-1]);
+         else
+         printf("largest :%d \n smallest %d\n", a[k-1],a[n-k]);
+}
+
+void Union_arr(int a[],int b[],int m,int n)
+{
+      int i=0,j=0;
+  while( i<n &&  j<m)
+{
+  if(a[i]<b[j])
+  printf("%d ",a[i++]);
+  else if(b[j]<a[i])
+  printf("%d ",b[j++]); 
+  else
+  {
+  printf("%d ",b[j++]);
+  i++;
+  }
+  
+}
+while(i<n)
+printf("%d ",a[i++]);
+while(j<m)
+printf("%d ",b[j++]);
+ printf("\n");
+}
+void intersection_arr(int a[],int b[],int m,int n)
+{
+      int i=0,j=0;
+      while(i<n && j<m)
+      {
+            if(a[i]<b[j]) i++;
+            else if(b[j]<a[i]) j++;
+            else                                /*** only this line makes --- execution time out ***/
+            {
+            printf("%d ",a[i++]);
+            j++; 
+            }
+           
+      }
+}
+
+int main()
+{
+    int n=5,m=5,k,i,j,min;
+//     scanf("%d",&n);
+  int a[10]={1,3,8,5,4};
+  int b[10]={3,4,2,9,0};
+  selection_sort(a,5);
+  selection_sort(b,5);
+  printf("Union of two arrays is: ");
+  Union_arr(a,b,m,n);
+  printf("intersection of two arrays is: ");
+  intersection_arr(a,b,m,n);
+  printf("\n");
+  printf("Reversal of array: ");
+  
+  for(i=n-1;i>=0;i--)
+  printf("%d ",a[i]);
+  printf("\n");
+    return 0;
+}
