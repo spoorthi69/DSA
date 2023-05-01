@@ -1,4 +1,5 @@
 //Create 1d array with 10 elements and find out prime numbers and print
+
 #include <stdio.h>
 int main()
 {
