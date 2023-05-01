@@ -1,0 +1,41 @@
+/******************************************************************************
+
+Swapping of kth index value from both sides
+
+*******************************************************************************/
+#include <stdio.h>
+int n;
+int swap(int k,int arr[])
+{
+      int temp=arr[k-1];
+      arr[k-1]=arr[n-k];
+      arr[n-k]=temp;
+      
+   for(int i=0;i<n;i++)
+   printf("%d ",arr[i]);
+   printf("\n");
+ 
+}
+int main()
+{
+   int arr[20],k,i,x,temp,b[20];
+   printf("Enter size\n");
+   scanf("%d",&n);
+   
+   printf("Array elements\n");
+   for(i=0;i<n;i++)
+   scanf("%d",&arr[i]);
+   
+   printf("Enter the number of swaps you need to perform: ");
+   scanf("%d",&x);
+   for(i=0;i<=x;i++)
+   {
+   printf("\nEnter the index of elements to be swapped: ");
+   scanf("%d",&k);
+    b[i]=swap(k,arr);
+   }
+  
+    return 0;
+   
+}
+
